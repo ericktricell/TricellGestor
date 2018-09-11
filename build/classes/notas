@@ -1,0 +1,10 @@
+adicionar msg de sucesso em cadastro da empresa
+
+geração do codigo de funcionario, a letra do sobrenome ta maiuscula
+
+verificar datas para n sair null
+
+botao limpar nao esta limpando em fornecedor
+
+no final do cadastro do cliente nao ta limpando a variavel
+

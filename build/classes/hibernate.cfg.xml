@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/tricellgestor?createDatabaseIfNotExist=true</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">false</property>
+    <property name="hbm2ddl.auto">update</property>
+    <mapping class="br.com.project.model.Cliente"/>
+    <mapping class="br.com.project.model.Contato"/>
+    <mapping class="br.com.project.model.Despesas"/>
+    <mapping class="br.com.project.model.Departamento"/>
+    <mapping class="br.com.project.model.Empresa"/>
+    <mapping class="br.com.project.model.Endereco"/>
+    <mapping class="br.com.project.model.Fornecedor"/>
+    <mapping class="br.com.project.model.Funcionario"/>
+    <mapping class="br.com.project.model.Usuario"/>
+    <mapping class="br.com.project.model.Categoria"/>
+    <mapping class="br.com.project.model.Produtos"/>
+    <mapping class="br.com.project.model.Pedidos"/>
+    <mapping class="br.com.project.model.Pedidoprodutos"/>
+    <mapping class="br.com.project.model.Compras"/>
+    <mapping class="br.com.project.model.Compraprodutos"/>
+    <mapping class="br.com.project.model.Caixadodia"/>
+    <mapping class="br.com.project.model.Recebimento"/>
+    <mapping class="br.com.project.model.Vendaproduto"/>
+  </session-factory>
+</hibernate-configuration>
