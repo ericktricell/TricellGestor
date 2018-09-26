@@ -52,7 +52,7 @@ public class ProdutosBean {
     
     public List<Produtos> listProdutos(String txt){
         try {
-            return new ProdutosDAO().findQuery("Produtos.findByNome", "nome", txt);
+            return new ProdutosDAO().findQuery("Produtos.findByNome", "nome", "%" +txt+"%");
         } catch (Exception ex) {
             return new ArrayList<>();
         }

@@ -159,9 +159,18 @@ public class BuscaClientes extends javax.swing.JDialog {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
-        cliente = lsCliente.get(jTable1.getSelectedRow());
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-            this.dispose();
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                cliente = lsCliente.get(jTable1.getSelectedRow() - 1);
+                this.dispose();
+            } catch (ArrayIndexOutOfBoundsException e) {
+                cliente = lsCliente.get(lsCliente.size() - 1);
+                this.dispose();
+            }
+        } else {
+            cliente = lsCliente.get(jTable1.getSelectedRow());
+        }
     }//GEN-LAST:event_jTable1KeyReleased
 
     /**

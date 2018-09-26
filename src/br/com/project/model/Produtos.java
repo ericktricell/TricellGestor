@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Produtos.findAll", query = "SELECT p FROM Produtos p ORDER BY p.inativo desc"),
     @NamedQuery(name = "Produtos.findByIdProduto", query = "SELECT p FROM Produtos p WHERE p.idProduto = :idProduto"),
-    @NamedQuery(name = "Produtos.findByNome", query = "SELECT p FROM Produtos p WHERE p.nome like :nome and p.inativo = false"),
+    @NamedQuery(name = "Produtos.findByNome", query = "SELECT p FROM Produtos p WHERE p.nome like :nome or p.marca like :nome and p.inativo = false"),
     @NamedQuery(name = "Produtos.reajuste", query = "UPDATE Produtos p SET p.valorVenda = :venda WHERE p.idProduto = :id"),
     @NamedQuery(name = "Produtos.somaC", query = "SELECT p FROM Produtos p WHERE p.inativo = false")
     })

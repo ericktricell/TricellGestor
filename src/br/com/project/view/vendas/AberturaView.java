@@ -334,26 +334,29 @@ public class AberturaView extends javax.swing.JDialog {
     }//GEN-LAST:event_buscaClienteBTActionPerformed
 
     private void clienteFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_clienteFieldKeyReleased
+        BuscaClientes bc = new BuscaClientes(new javax.swing.JFrame(), true);
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             recebimento = new Recebimento();
-        BuscaClientes bc = new BuscaClientes(new javax.swing.JFrame(), true);
-        bc.setVisible(true);
-        recebimento.setDestinatario(bc.getCliente());
-        clienteField.setText(recebimento.getDestinatario().getNome() + " " + recebimento.getDestinatario().getSobrenome());
-        logradouroFD.setText(recebimento.getDestinatario().getIdEndereco().getLogradouro());
-        numeroFD.setText(String.valueOf(recebimento.getDestinatario().getIdEndereco().getNumero()));
-        bairroFD.setText(recebimento.getDestinatario().getIdEndereco().getBairro());
-        cidadeFD.setText(recebimento.getDestinatario().getIdEndereco().getCidade());
-        cepFD.setText(recebimento.getDestinatario().getIdEndereco().getCep());
-        compFD.setText(recebimento.getDestinatario().getIdEndereco().getComplemento());
-        for (int i = 0; i < new EstadosServ().getLsEstados().size(); i++) {
-            estadoCB.setSelectedIndex(i);
-            if (recebimento.getDestinatario().getIdEndereco().getEstado().equals(estadoCB.getSelectedItem().toString().substring(0, 2))) {
-                break;
+            try {
+                bc.setVisible(true);
+                recebimento.setDestinatario(bc.getCliente());
+                clienteField.setText(recebimento.getDestinatario().getNome() + " " + recebimento.getDestinatario().getSobrenome());
+                logradouroFD.setText(recebimento.getDestinatario().getIdEndereco().getLogradouro());
+                numeroFD.setText(String.valueOf(recebimento.getDestinatario().getIdEndereco().getNumero()));
+                bairroFD.setText(recebimento.getDestinatario().getIdEndereco().getBairro());
+                cidadeFD.setText(recebimento.getDestinatario().getIdEndereco().getCidade());
+                cepFD.setText(recebimento.getDestinatario().getIdEndereco().getCep());
+                compFD.setText(recebimento.getDestinatario().getIdEndereco().getComplemento());
+                for (int i = 0; i < new EstadosServ().getLsEstados().size(); i++) {
+                    estadoCB.setSelectedIndex(i);
+                    if (recebimento.getDestinatario().getIdEndereco().getEstado().equals(estadoCB.getSelectedItem().toString().substring(0, 2))) {
+                        break;
+                    }
+                }
+                data_operacaoField.setText(df.format(new Date()));
+            } catch (NullPointerException e) {
+                
             }
-        }
-        data_operacaoField.setText(df.format(new Date()));
-
         }
     }//GEN-LAST:event_clienteFieldKeyReleased
 

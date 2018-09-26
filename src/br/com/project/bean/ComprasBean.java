@@ -7,8 +7,7 @@ package br.com.project.bean;
 
 import br.com.project.dao.ComprasDAO;
 import br.com.project.model.Compras;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +18,9 @@ public class ComprasBean {
     public void salvar(Compras compras){
         try {
             new ComprasDAO().saveOrUpdate(compras);
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
         } catch (Exception ex) {
-            Logger.getLogger(ComprasBean.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     }
     

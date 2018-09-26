@@ -75,6 +75,11 @@ public class BuscaProdutos extends javax.swing.JDialog {
                 jTable1MouseClicked(evt);
             }
         });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable1KeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Selecionar");
@@ -96,7 +101,7 @@ public class BuscaProdutos extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,12 +141,21 @@ public class BuscaProdutos extends javax.swing.JDialog {
         int i = jTable1.getSelectedRow();
 
         prod = listProd.get(i);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+            this.dispose();
+        
+        int i = jTable1.getSelectedRow();
+        prod = listProd.get(i);
+    }//GEN-LAST:event_jTable1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -199,28 +213,27 @@ public class BuscaProdutos extends javax.swing.JDialog {
         return prod;
     }
 
-    private void organizaTabela(){
+    private void organizaTabela() {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Nome");
         model.addColumn("Marca");
         model.addColumn("Quantidade");
         model.addColumn("Medida");
         model.addColumn("Valor");
-        
+
         DecimalFormat df = new DecimalFormat("¤#,##0.00");
-        
-        for (int i = 0; i < listProd.size(); i++){
+
+        for (int i = 0; i < listProd.size(); i++) {
             model.addRow(new String[]{
                 listProd.get(i).getNome(),
                 listProd.get(i).getMarca(),
                 listProd.get(i).getQuantidade().toString(),
                 listProd.get(i).getMedida(),
-                df.format(listProd.get(i).getValorVenda()),
-            });
+                df.format(listProd.get(i).getValorVenda()),});
         }
         jTable1.setModel(model);
     }
-    
+
     private void setAcessibilidade() {
         JRootPane meurootpane = getRootPane();
         meurootpane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");
@@ -228,11 +241,11 @@ public class BuscaProdutos extends javax.swing.JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int i = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?");
-                if (i == 0){
+                if (i == 0) {
                     dispose();
                 }
-                
+
             }
-        });    
+        });
     }
 }

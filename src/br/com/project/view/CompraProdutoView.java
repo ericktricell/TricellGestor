@@ -360,8 +360,9 @@ public class CompraProdutoView extends javax.swing.JDialog {
             if (jCheckBox1.isSelected())
                 cp.setDataValidade(validadeDC.getDate());
             cp.setNumLote(numLoteField.getText());
-            cp.setProdutos(prod);
             cp.setValorCompra(vlrcompra);
+            prod.setValorCompra(vlrcompra);
+            cp.setProdutos(prod);
             cp.setQuantidade(Double.parseDouble(quantidadeField.getText().replace(",", ".")));
             prod.setQuantidade(cp.getQuantidade() + qnt);
             cp.setCompraprodutosPK(cppk);
